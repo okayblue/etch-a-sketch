@@ -1,17 +1,41 @@
 const gridContainer = document.querySelector('.gridContainer');
-gridContainer.setAttribute('style', 'background-color: grey;');
+const button = document.querySelector('#squaresBtn');
+let num;
+let squares = document.querySelectorAll('#square');
 
-for (let i = 0; i < 16*16; i++) {
-    let div = document.createElement('div');
-    div.setAttribute('id', 'square');
-    gridContainer.appendChild(div);
-};
+// ask for a grid size
+button.addEventListener('click', () => {
+    num = prompt('Enter number:');
+    createGrid(num);
+})
 
-const square = document.querySelectorAll('#square');
+function createGrid(number) {
+    for (let i = 0; i < number * number; i++) {
+        let div = document.createElement('div');
+        div.setAttribute('id', 'square');
+        div.setAttribute('style', 'flex-basis: ' + (100 / number) + '%');
+        gridContainer.appendChild(div);
+    };
+    squares = document.querySelectorAll('#square');
+    coloring();
+}
 
-// mouseenter event to change div color
-square.forEach((square) => {
-    square.addEventListener('mouseenter', () => {
-        square.setAttribute('style', 'background-color: black;');
+
+// for (let i = 0; i < 16 * 16; i++) {
+//     let div = document.createElement('div');
+//     div.setAttribute('id', 'square');
+//     gridContainer.appendChild(div);
+// };
+
+
+// // mouseenter event to change div color
+function coloring() {
+    squares.forEach((square) => {
+        square.addEventListener('mouseenter', () => {
+            square.style.backgroundColor = "black";
+        });
     });
-});
+
+}
+
+
