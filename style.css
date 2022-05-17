@@ -4,7 +4,5 @@
     display: flex;
     flex-flow: row wrap;
     margin: auto;
+    background-color: rgb(196, 196, 196);
 }
-
-#square {
-} 
