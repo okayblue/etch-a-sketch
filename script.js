@@ -1,4 +1,10 @@
 const gridContainer = document.querySelector('.gridContainer');
-const div = document.createElement('div');
+gridContainer.setAttribute('style', 'background-color: grey;');
 
-gridContainer.appendChild(div);
+for (let i = 0; i < 16*16; i++) {
+    let div = document.createElement('div');
+    div.setAttribute('id', 'square');
+    gridContainer.appendChild(div);
+};
+
+

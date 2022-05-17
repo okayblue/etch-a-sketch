@@ -1,0 +1,11 @@
+.gridContainer {
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-flow: row wrap;
+    margin: auto;
+}
+
+#square {
+    flex: 0 0 6.25%;
+} 
