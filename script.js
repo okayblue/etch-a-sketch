@@ -7,4 +7,11 @@ for (let i = 0; i < 16*16; i++) {
     gridContainer.appendChild(div);
 };
 
+const square = document.querySelectorAll('#square');
 
+// mouseenter event to change div color
+square.forEach((square) => {
+    square.addEventListener('mouseenter', () => {
+        square.setAttribute('style', 'background-color: black;');
+    });
+});
