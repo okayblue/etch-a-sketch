@@ -1,6 +1,9 @@
 const gridContainer = document.querySelector('.gridContainer');
 const button = document.querySelector('#squaresBtn');
+const rainbowBtn = document.querySelector('#rainbowBtn');
+const blackBtn = document.querySelector('#blackBtn');
 let num;
+let color = '';
 let squares = document.querySelectorAll('#square');
 
 // create initial grid
@@ -12,6 +15,14 @@ button.addEventListener('click', () => {
     createGrid(num);
 })
 
+rainbowBtn.addEventListener('click', () => {
+    color = 'rainbow';
+})
+
+blackBtn.addEventListener('click', () => {
+    color = 'black';
+})
+
 function createGrid(number) {
     // clear grid before creating new grid
     clearGrid();
@@ -21,21 +32,29 @@ function createGrid(number) {
         div.setAttribute('id', 'square');
         div.setAttribute('style', 'flex-basis: ' + (100 / number) + '%');
         gridContainer.appendChild(div);
-    };
-    
-    coloring();
+    };    
+
+    coloring(color);
 }
 
 // // mouseenter event to change div color
-function coloring() {
+function coloring(y) {
     squares = document.querySelectorAll('#square');
-
     squares.forEach((square) => {
         square.addEventListener('mouseenter', () => {
-            square.style.backgroundColor = "black";
+            if (color == 'rainbow') {
+                square.style.backgroundColor = rainbow();
+            } else {
+                square.style.backgroundColor = 'black';   
+            }
         });
     });
 
+}
+
+function rainbow() {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return '#' + randomColor;
 }
 
 function clearGrid() {
@@ -43,5 +62,6 @@ function clearGrid() {
         gridContainer.removeChild(square);
     });
 }
+
 
 
