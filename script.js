@@ -3,8 +3,9 @@ const button = document.querySelector('#squaresBtn');
 const lineBtn = document.querySelector('#lineBtn');
 const rainbowBtn = document.querySelector('#rainbowBtn');
 const blackBtn = document.querySelector('#blackBtn');
+const eraserBtn = document.querySelector('#eraserBtn');
 let num;
-let color = '';
+let color = 'black';
 let squares = document.querySelectorAll('#square');
 
 // create initial grid
@@ -28,6 +29,10 @@ blackBtn.addEventListener('click', () => {
     color = 'black';
 })
 
+eraserBtn.addEventListener('click', () => {
+    color = 'eraser';
+})
+
 function createGrid(number) {
     // clear grid before creating new grid
     clearGrid();
@@ -49,8 +54,10 @@ function coloring() {
         square.addEventListener('mouseenter', () => {
             if (color == 'rainbow') {
                 square.style.backgroundColor = rainbow();
-            } else {
+            } else if (color == 'black') {
                 square.style.backgroundColor = 'black';   
+            } else if (color == 'eraser') {
+                square.style.backgroundColor = 'white';
             }
         });
     });
