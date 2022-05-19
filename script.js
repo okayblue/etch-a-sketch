@@ -14,7 +14,11 @@ createGrid(16);
 // ask for a grid size when button is clicked
 button.addEventListener('click', () => {
     num = prompt('Enter number:');
-    createGrid(num);
+    if (num > 0 && num < 101) {
+        createGrid(num);
+    } else {
+        alert('Must be an integer between 1 and 100');
+    }
 })
 
 lineBtn.addEventListener('click', () => {
