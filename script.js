@@ -1,5 +1,6 @@
 const gridContainer = document.querySelector('.gridContainer');
 const button = document.querySelector('#squaresBtn');
+const lineBtn = document.querySelector('#lineBtn');
 const rainbowBtn = document.querySelector('#rainbowBtn');
 const blackBtn = document.querySelector('#blackBtn');
 let num;
@@ -13,6 +14,10 @@ createGrid(16);
 button.addEventListener('click', () => {
     num = prompt('Enter number:');
     createGrid(num);
+})
+
+lineBtn.addEventListener('click', () => {
+    gridContainer.classList.toggle('gridLines');
 })
 
 rainbowBtn.addEventListener('click', () => {
@@ -34,11 +39,11 @@ function createGrid(number) {
         gridContainer.appendChild(div);
     };    
 
-    coloring(color);
+    coloring();
 }
 
 // // mouseenter event to change div color
-function coloring(y) {
+function coloring() {
     squares = document.querySelectorAll('#square');
     squares.forEach((square) => {
         square.addEventListener('mouseenter', () => {
@@ -49,7 +54,6 @@ function coloring(y) {
             }
         });
     });
-
 }
 
 function rainbow() {

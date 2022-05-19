@@ -1,8 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e2e2e2;
+}
+
 .gridContainer {
     width: 800px;
     height: 800px;
     display: flex;
     flex-flow: row wrap;
     margin: auto;
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(255, 255, 255);
+}
+
+.gridLines div {
+    border: 1px solid #dfdfdf;
 }
